@@ -8,6 +8,8 @@ app.use(express.json());
 app.use('/funcionarios', funcionarioRoutes);
 
 
+app.use(express.static('public'));
+
 // questão de segurança para não expor a porta em caso de subir os codigos para um repositório público,
 //  por exemplo, o que é uma boa prática.
 
