@@ -27,3 +27,22 @@ export const inserirFuncionario = (req, res) => {
     });
 
 };
+
+//Função para atualizar
+export const atualizarFuncionario = (req, res) => {
+
+    const { id } = req.params;
+    const { nome, cargo, salario } = req. body;
+
+    //Aqui estamos indicando para o sql que queremos deixar separado os valores, usando o ponto de interrogação 
+    // como um marcador de posição para os valores que serão passados posteriormente como um array. 
+    // Isso é uma prática recomendada para evitar vulnerabilidades de SQL Injection, onde um 
+    // invasor poderia tentar inserir código malicioso na consulta SQL.
+
+    const sql = 'UPDATE funcionarios SET nome=?, cargo=?, salario=? WHERE id=?';
+    db.query(sql, [nome, cargo, salario, id], err => {
+
+    if(err) return res. status(500).json( {erro: 'Erro ao atualizar funcionário'});
+    res.json({ mensagem:'Funcionário atualizado com sucesso!'});
+    });
+};
