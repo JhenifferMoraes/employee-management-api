@@ -46,3 +46,17 @@ export const atualizarFuncionario = (req, res) => {
     res.json({ mensagem:'Funcionário atualizado com sucesso!'});
     });
 };
+
+export const excluirFuncionario = (req, res) => {
+//Qual id irei fazer a exclusão, por isso pego o id dos parâmetros da requisição
+    const { id } = req.params;
+
+    //adicionar o where separado para não excluir todos os funcionários, 
+    // e o id é passado como um array para evitar SQL Injection
+    db.query('DELETE FROM funcionarios WHERE id=?', [id], err=>{
+        if(err) return res.status(500).json( {erro: 'Erro ao excluir funcionário'} );
+
+        //emnsagem de exclusão bem sucedida
+        res.json( {mensagem: 'Funcionário excluído com sucesso!'} );
+    });
+};
