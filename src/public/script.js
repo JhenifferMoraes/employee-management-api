@@ -28,8 +28,7 @@ async function carregarFuncionarios(){
             <td>${func.cargo}</td>
             <td>${parseFloat(func.salario).toFixed(2)}</td>
             <td>
-                <button onclick="editarFuncionario(${func.id}, 
-                ${func.nome}, ${func.cargo}, ${func.salario})">Editar</button>
+                <button onclick="editarFuncionario(${func.id}, '${func.nome}', '${func.cargo}', ${func.salario})">Editar</button>
                 <button onclick="excluirFuncionario(${func.id})">Excluir</button>
             </td>
             `;
@@ -78,6 +77,10 @@ document.getElementById('funcionarioForm').addEventListener('submit', async (e) 
 
 });
 
+//função editar funcionário, onde os valores dos campos do formulário 
+// são preenchidos com os dados do funcionário selecionado para edição, permitindo que 
+// o usuário faça as alterações necessárias antes de enviar o formulário novamente para atualizar os dados no servidor.
+
 function editarFuncionario(id, nome, cargo, salario){
     document.getElementById('id').value = id;
     document.getElementById('nome').value = nome;
@@ -86,6 +89,9 @@ function editarFuncionario(id, nome, cargo, salario){
 
 }
 
+// função excluir funcionário, onde é exibida uma caixa de confirmação para
+//  o usuário antes de enviar a solicitação de exclusão para o servidor. Se o usuário confirmar a exclusão,
+//  a função faz uma requisição DELETE para o servidor e, em seguida, recarrega a lista de funcionários para refletir a exclusão.
 async function excluirFuncionario(id){
     if(confirm('Tem certeza que deseja excluir este funcionário?')){
         await fetch(`${API_URL}/${id}`, {method: 'DELETE'});
