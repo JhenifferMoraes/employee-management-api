@@ -7,8 +7,6 @@ export const listarFuncionarios = (req, res) => {
         if (err) return res.status(500).json( {erro: 'Erro ao buscar funcionários'});
         res.json(results);
     });
-
-
 };
 
 // Função para inserir um novo funcionário

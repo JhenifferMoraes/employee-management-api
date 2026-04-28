@@ -37,7 +37,7 @@ async function carregarFuncionarios(){
     });
 };
 // "e" de prevent default, para evitar que a página seja recarregada ao enviar o formulário 
-document.getElementbyId('funcionarioForm').addEventListener('submit', async (e) =>{
+document.getElementById('funcionarioForm').addEventListener('submit', async (e) =>{
     e.preventDefault();
 // os valores dos campos do formulário são obtidos usando o método getElementById e 
 // armazenados em variáveis
