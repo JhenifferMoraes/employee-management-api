@@ -77,3 +77,18 @@ document.getElementById('funcionarioForm').addEventListener('submit', async (e) 
     carregarFuncionarios();
 
 });
+
+function editarFuncionario(id, nome, cargo, salario){
+    document.getElementById('id').value = id;
+    document.getElementById('nome').value = nome;
+    document.getElementById('cargo').value = cargo;
+    document.getElementById('salario').value = salario;
+
+}
+
+async function excluirFuncionario(id){
+    if(confirm('Tem certeza que deseja excluir este funcionário?')){
+        await fetch(`${API_URL}/${id}`, {method: 'DELETE'});
+        carregarFuncionarios();
+    }
+}
