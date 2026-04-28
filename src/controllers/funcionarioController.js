@@ -32,7 +32,7 @@ export const inserirFuncionario = (req, res) => {
 export const atualizarFuncionario = (req, res) => {
 
     const { id } = req.params;
-    const { nome, cargo, salario } = req. body;
+    const { nome, cargo, salario } = req.body;
 
     //Aqui estamos indicando para o sql que queremos deixar separado os valores, usando o ponto de interrogação 
     // como um marcador de posição para os valores que serão passados posteriormente como um array. 
