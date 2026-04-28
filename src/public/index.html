@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management API</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="global.css">
+</head> 
+</html>
+
+    <main class="container">
+        <header>
+            <h1>Gestão de Funcionários</h1>
+        </header>
+
+        <!-- Formulário para cadastro e atualização de funcionários -->
+        <section class = "form-section">
+            <h2>Cadastrar / Atualizar Funcionário</h2>
+            <form id="funcionarioForm">
+                <input type="hidden" id="id">
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="text" id="cargo" placeholder="Cargo" required>
+                <input type="number" id="salario" placeholder="Salário" required>
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+
+
+        <!-- Seção para exibir a lista de funcionários -->
+        <section class="list-section">
+            <h2>Lista de Funcionários</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Salário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-funcionarios"></tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p> 2025 Sistema de Funcionários | Desenvolvido por Jheniffer de Moraes</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
